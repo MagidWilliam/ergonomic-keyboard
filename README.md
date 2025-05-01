@@ -6,6 +6,12 @@
 
 This is a custom-built 5x7 Dactyl Manuform keyboard, generated using the Cosmos Dactyl Generator. It features an integrated trackball, combining ergonomic split keyboard design with convenient pointer control.
 
+## PMW3610 Breakout Board
+
+**[🛒 Purchase the PMW3610 Breakout Board on Tindie](https://www.tindie.com/products/randware/pmw3610-breakout-board/)**
+
+Build your own version of this keyboard with our ready-to-use PMW3610 motion tracking board. This ultra-low power sensor is perfect for custom trackballs, mice, and battery-powered projects like this keyboard. Each board is hand-tested and ships from Arizona, USA with clear pin labels for easy integration.
+
 ## Software
 
 This keyboard runs on ZMK Firmware, a modern, open-source keyboard firmware built on the Zephyr RTOS.
@@ -26,13 +32,25 @@ To enable the trackball functionality, this build incorporates a custom Zephyr d
 
 ### Trackball Integration
 
-The trackball uses a PMW3610 sensor, which is mounted on a custom breakout board. The PCB design for this breakout board was sourced from the [siderakb/pmw3610-pcb](https://github.com/siderakb/pmw3610-pcb) repository.
+The trackball uses a PMW3610 sensor, which is mounted on a custom breakout board. The PCB design for this breakout board was sourced from the [siderakb/pmw3610-pcb](https://github.com/siderakb/pmw3610-pcb) repository, and is now available for purchase on [Tindie](https://www.tindie.com/products/randware/pmw3610-breakout-board/).
 
 Fabrication Process:
 
 1. PCB design files were obtained from siderakb's repository.
 2. The PCB was ordered from an Electronic Design Automation (EDA) service.
 3. The PMW3610 module was sourced separately and soldered onto the fabricated PCB.
+
+Connection to nRF52840:
+
+| PMW3610 Pin | nRF52840 Pin    | Description |
+|-------------|-----------------|-------------|
+| SDIO        | P1.00           | SPI MOSI/MISO (bidirectional data line) |
+| SCLK        | P0.24           | SPI clock signal |
+| NCS         | P0.22           | Chip select (active low) |
+| NRESET      | *Not connected* | Reset pin (likely handled internally) |
+| MOT         | P0.20           | Motion interrupt pin (active low, pull-up) |
+| GND         | GND             | Ground |
+| VDD         | VCC             | Power supply (3.3V) |
 
 Special thanks to siderakb for providing the open-source PCB design files.
 
@@ -48,7 +66,7 @@ Special thanks to siderakb for providing the open-source PCB design files.
 - 1N4148 schottky switching diode
 - Gateron Mini i switches
 - Keycaps
-- PMW3610 optical mouse sensor ([Product Details](https://www.pixart.com/products-detail/21/PMW3610DM-SUDU))
+- PMW3610 optical mouse sensor ([Product Details](https://www.pixart.com/products-detail/21/PMW3610DM-SUDU), [Purchase](https://www.tindie.com/products/randware/pmw3610-breakout-board/))
 - 1.34 inch trackball
 - 304 stainless steel dowel pin
 - MR63ZZ mini ball bearings 3x6x2.5mm
